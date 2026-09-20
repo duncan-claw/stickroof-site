@@ -1,0 +1,15 @@
+<div class="gallery-grid">
+  <% items.each do |item| %>
+    <article class="gallery-card gallery-card--image">
+      <%= image_tag item[:src],
+            alt: item[:alt],
+            loading: "lazy",
+            decoding: "async",
+            width: item[:width],
+            height: item[:height] %>
+      <div class="gallery-card__caption">
+        <span><%= item[:title] %></span>
+      </div>
+    </article>
+  <% end %>
+</div>

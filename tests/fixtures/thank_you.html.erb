@@ -1,0 +1,33 @@
+<% content_for :head do %>
+  <% if ENV["GOOGLE_ADS_CONVERSION_ID"].present? && ENV["GOOGLE_ADS_LEAD_FORM_LABEL"].present? %>
+    <script>
+      gtag('event', 'conversion', {
+        'send_to': '<%= ENV["GOOGLE_ADS_CONVERSION_ID"] %>/<%= ENV["GOOGLE_ADS_LEAD_FORM_LABEL"] %>'
+      });
+    </script>
+  <% end %>
+
+  <% if ENV["META_PIXEL_ID"].present? %>
+    <script>
+      fbq('track', 'Lead');
+    </script>
+  <% end %>
+<% end %>
+
+<section class="thank-you">
+  <div class="wrap split-grid">
+    <div class="section-heading">
+      <p class="eyebrow">Thanks</p>
+      <h1>Your enquiry is through.</h1>
+      <p class="lede">Stick Roof has your details and will be in touch shortly. If the job is urgent, call <a href="tel:<%= default_phone_href %>"><%= default_phone_number %></a>.</p>
+      <div class="button-row">
+        <a class="button" href="tel:<%= default_phone_href %>">Call now</a>
+        <a class="button--ghost" href="/">Back to home</a>
+      </div>
+    </div>
+    <aside class="quote-card">
+      <blockquote>Complicated build? Good. That’s usually where the interesting work lives.</blockquote>
+      <cite>Stick Roof · Geelong, VIC</cite>
+    </aside>
+  </div>
+</section>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Stick Roof icon">
+  <rect width="128" height="128" rx="28" fill="#0b1913"/>
+  <path d="M18 88 L44 58 L64 74 L88 36 L110 88" fill="none" stroke="#dcc27b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24 92 H104" fill="none" stroke="#b8cfbf" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="88" cy="36" r="5" fill="#f7faf7"/>
+</svg>

@@ -1,0 +1,18 @@
+<section class="page-hero">
+  <div class="wrap contact-grid">
+    <div class="section-heading">
+      <p class="eyebrow">Contact Stick Roof</p>
+      <h1>Tell us what you’re building.</h1>
+      <p class="lede">Need help with a stick roof, difficult renovation framing, specialist joinery, or project management? Send the basics and expect a direct response.</p>
+      <div class="contact-card">
+        <h2>Quickest option</h2>
+        <p><a href="tel:<%= default_phone_href %>"><%= default_phone_number %></a></p>
+        <p>If calling is awkward, you can email instead.</p>
+        <%= render "shared/reveal_email" %>
+      </div>
+    </div>
+    <aside>
+      <%= render "shared/lead_form", lead: @lead, source_path: contact_path, cta_text: "Send enquiry" %>
+    </aside>
+  </div>
+</section>

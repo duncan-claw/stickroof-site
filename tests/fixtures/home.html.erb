@@ -1,0 +1,100 @@
+<section class="hero">
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <%= image_tag "/stickroof-roofmark-outline.png",
+            alt: "Traditional Stick Roof roof mark",
+            class: "hero__mark",
+            width: 864,
+            height: 251,
+            loading: "eager",
+            decoding: "async" %>
+      <p class="eyebrow">Specialist carpentry & joinery · Geelong region</p>
+      <h1 class="headline">If it’s too difficult for most carpenters, try us.</h1>
+      <p class="lede">Stick Roof specialises in complex stick frame roofs, awkward roof geometry, hard renovation tie-ins, and the kind of carpentry detail that usually gets passed over by standard crews.</p>
+      <div class="hero__actions">
+        <a class="button" href="#lead-form">Request a quote</a>
+        <a class="button--ghost" href="/stick-roofs">See stick roof work</a>
+      </div>
+      <div class="stats-grid" aria-label="Business highlights">
+        <div class="stat"><strong>40 min</strong><span>Service radius around Geelong</span></div>
+        <div class="stat"><strong>1 call</strong><span>Direct contact with the person doing the work</span></div>
+        <div class="stat"><strong>Complex</strong><span>Roof framing and joinery jobs welcomed</span></div>
+      </div>
+    </div>
+
+    <aside class="hero__panel">
+      <p class="kicker">Tell us about the job</p>
+      <h2>Get a straight answer quickly.</h2>
+      <p class="hint">Roof framing, specialist joinery, renovation detail work, or project support — send the basics and get a callback.</p>
+      <%= render "shared/lead_form", lead: @lead, source_path: root_path, cta_text: "Send enquiry" %>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-heading">
+      <p class="eyebrow">What we do best</p>
+      <h2>Built for the jobs that need more thought, more precision, and less hand-waving.</h2>
+    </div>
+    <div class="service-grid">
+      <% @services.each do |service| %>
+        <article class="card">
+          <h3><%= service %></h3>
+          <p>Practical site knowledge, careful layout, and workmanship that respects the complexity of the build.</p>
+        </article>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split-grid">
+    <div>
+      <div class="section-heading">
+        <p class="eyebrow">Why Stick Roof</p>
+        <h2>Trusted when the roof shape gets interesting.</h2>
+      </div>
+      <div class="proof-grid">
+        <% @benefits.each do |benefit| %>
+          <article class="proof-card">
+            <h3><%= benefit[:title] %></h3>
+            <p><%= benefit[:copy] %></p>
+          </article>
+        <% end %>
+      </div>
+    </div>
+    <aside class="quote-card">
+      <blockquote>“The tricky stuff is usually where the real craftsmanship starts.”</blockquote>
+      <cite>Stick Roof · Geelong, VIC</cite>
+    </aside>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="section-heading">
+      <p class="eyebrow">Placeholder-friendly gallery</p>
+      <h2>Enough room for a handful of strong project photos — no bloated gallery needed.</h2>
+    </div>
+    <%= render "gallery", items: @gallery_items %>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="wrap split-grid">
+    <div>
+      <p class="eyebrow">Service area</p>
+      <h2>Geelong first, plus the surrounding region.</h2>
+      <p class="lede">Working across Geelong, the Surf Coast, Bellarine Peninsula, Werribee corridor, and Colac direction — roughly 40 minutes in every direction depending on the job.</p>
+    </div>
+    <div class="contact-card">
+      <h2>Prefer to talk it through?</h2>
+      <p>Call <a href="tel:<%= default_phone_href %>"><%= default_phone_number %></a> for a quick conversation about access, plans, roof shape, timeframe, and whether it’s the right fit.</p>
+      <div class="button-row" style="margin-top: 1rem;">
+        <a class="button" href="tel:<%= default_phone_href %>">Call now</a>
+        <a class="button--ghost" href="/service-area">See service area</a>
+      </div>
+    </div>
+  </div>
+</section>
