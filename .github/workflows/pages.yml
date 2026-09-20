@@ -19,9 +19,11 @@ jobs:
       - run: npm run build
         env:
           STICKROOF_PRODUCTION: '1'
+          VITE_POSTIE_API_KEY: ${{ secrets.VITE_POSTIE_API_KEY }}
       - run: npm test
         env:
           STICKROOF_PRODUCTION: '1'
+          VITE_POSTIE_API_KEY: ${{ secrets.VITE_POSTIE_API_KEY }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist

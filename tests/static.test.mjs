@@ -9,7 +9,9 @@ $('img').each((_,el)=>{assert.ok(fs.existsSync('dist'+$(el).attr('src')));assert
 $('a').each((_,el)=>{const href=$(el).attr('href');if(href.startsWith('/'))assert.ok(data.pages[href]||fs.existsSync('dist'+href));if(href.startsWith('#'))assert.equal($(href).length,1);});
 const source=fs.readFileSync('tests/fixtures/'+page.action+'.html.erb','utf8').replaceAll('<%= default_phone_number %>','0457 523 919').replace(/<%[\s\S]*?%>/g,'');const original=load(source);const text=norm($('main').text());
 original('h1,h2,h3,p,li,blockquote,cite').each((_,el)=>{const copy=norm(original(el).text());if(copy)assert.ok(text.includes(copy),'Missing source copy: '+copy);});
-if(route==='/'||route==='/contact'){assert.equal($('input[name=source_path]').attr('value'),route);assert.equal($('button[disabled]').length,1);assert.equal($('[required]').length,6);assert.deepEqual($('select option').toArray().slice(1).map(e=>$(e).text()),data.formServices);}
+const keyed=!!process.env.VITE_POSTIE_API_KEY;
+if(route==='/'||route==='/contact'){assert.equal($('input[name=source_path]').attr('value'),route);assert.equal($('button[disabled]').length,1);assert.equal($('[required]').length,6);assert.deepEqual($('select option').toArray().slice(1).map(e=>$(e).text()),data.formServices);
+ if(keyed){assert.equal($('input[name=nickname]').length,1);assert.equal($('.form-shell .error-summary').length,0);}else{assert.equal($('input[name=nickname]').length,0);assert.equal($('.form-shell .error-summary').length,1);}}
 if(route==='/'||route==='/stick-roofs')$('.gallery-card img').each((i,el)=>{const item=data.gallery[i];for(const key of ['src','alt','width','height'])assert.equal($(el).attr(key),String(item[key]));});
 assert.ok(!html.includes('<%'));assert.equal(html.includes('facebook.com/tr?'),process.env.STICKROOF_PRODUCTION === '1');
 });

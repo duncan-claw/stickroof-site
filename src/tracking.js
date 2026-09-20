@@ -10,11 +10,11 @@ export function initTracking(){
  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=true;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=true;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
  window.fbq('init',META_PIXEL_ID);window.fbq('track','PageView');
 }
-// Existing source events retained, but impossible to fire in Phase 1–2.
-// Phase 3 must replace this gate only after verified accepted submission.
+// Fired once per accepted enquiry: LeadForm sets the sessionStorage flag on an
+// accepted Postie response; /thanks consumes it exactly once. Direct /thanks
+// visits and local/preview hostnames never fire.
 export function trackAcceptedEnquiry(){
- const submissionEnabled=false;
- if(!submissionEnabled||!trackingAllowed(location.hostname))return;
+ if(typeof location==='undefined'||!trackingAllowed(location.hostname))return;
  window.gtag?.('event','conversion',{'send_to':GOOGLE_ADS_ID+'/'+GOOGLE_ADS_LEAD_LABEL});
  window.fbq?.('track','Lead');
 }
