@@ -37,3 +37,7 @@ Read full migration plan, workspace BROCHURE_SITES.md, actual reference setup/co
 4. Parent configured GitHub Pages successfully on 2026-09-20: build type/source is GitHub Actions (`workflow`) and custom domain is `stickroof.com`. No DNS changes or deployments were made. HTTPS enforcement is not yet available, as expected before DNS cutover and certificate issuance. Keep deployment manual via `workflow_dispatch`; do not dispatch or add a `main` push trigger until separately approved after Phase 3. Public hosting, certificate and redirects remain unverified.
 5. DNS was independently confirmed still pointing at the existing 13.236.107.254 origin on 2026-09-20. No DNS, Microsoft 365, AWS, source repo edits, leads export, decommission or archival actions were taken. Keep the existing site live; later phases require separate approval.
 6. Parent/client visual review remains. Even source “Placeholder-friendly gallery” copy retained: no redesign or copy cleanup.
+
+## Parent publication result
+
+Local primary main fast-forwarded to reviewed commit 1e8cdfd. Push rejected atomically: current GitHub OAuth credential lacks `workflow` scope, so it cannot create `.github/workflows/pages.yml`. Remote main remains bootstrap 92c7c8e; full implementation is local in both primary checkout and isolated worktree. No deploy runs. Owner must authorize workflow-capable GitHub access through the supported GitHub CLI login/refresh flow before source can be pushed.
