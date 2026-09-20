@@ -1,6 +1,6 @@
 # Phase 1–2 migration status
 
-2026-09-20 — local implementation; awaiting parent review. Not published.
+2026-09-20 — Phase 1–2 implementation reviewed and locally verified. Source ready for main; website deployment remains gated.
 
 ## Scope and provenance
 
@@ -33,7 +33,7 @@ Read full migration plan, workspace BROCHURE_SITES.md, actual reference setup/co
 
 1. Phase 3 needs approval: recipient, Postie Website/key, accepted/error states, spam controls, delivery and conversion validation. No Postie calls, records, keys, secret storage or real messages made.
 2. **Pixel discrepancy:** source config/deploy.yml:42 has 982007488091156; task/plan requests 982008488091156. Implemented requested value; confirm before publication.
-3. Source noscript Meta beacon omitted during preview: static HTML cannot hostname-gate it without JS, so it would pollute no-JS localhost QA. Decide production-only artifact beacon after approval. JS tracking/events otherwise retained.
+3. Source noscript Meta beacon retained for deployment artifacts: workflow sets STICKROOF_PRODUCTION=1 for build/tests. Default local builds omit it to prevent no-JS localhost QA from polluting tracking. Parent reran both production and preview builds (8 static tests each) and browser smoke (12 desktop/mobile routes + 6 no-JS routes), all passing. JS tracking/events retained with hostname and accepted-submission gates.
 4. Parent configured GitHub Pages successfully on 2026-09-20: build type/source is GitHub Actions (`workflow`) and custom domain is `stickroof.com`. No DNS changes or deployments were made. HTTPS enforcement is not yet available, as expected before DNS cutover and certificate issuance. Keep deployment manual via `workflow_dispatch`; do not dispatch or add a `main` push trigger until separately approved after Phase 3. Public hosting, certificate and redirects remain unverified.
 5. DNS was independently confirmed still pointing at the existing 13.236.107.254 origin on 2026-09-20. No DNS, Microsoft 365, AWS, source repo edits, leads export, decommission or archival actions were taken. Keep the existing site live; later phases require separate approval.
 6. Parent/client visual review remains. Even source “Placeholder-friendly gallery” copy retained: no redesign or copy cleanup.
