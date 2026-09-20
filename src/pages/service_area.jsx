@@ -10,7 +10,7 @@ export default function Page({route}) { return <>
     </div>
     <aside className="contact-card">
       <h2>Not sure if your job is in range?</h2>
-      <p>Call <a href="tel:+61457523919">0457 523 919</a> or send an enquiry with your suburb and project type. If the job suits, we’ll make it work.</p>
+      <p>Call Ian on <a href="tel:+61457523919">0457 523 919</a> or send an enquiry with your suburb and project type. If the job suits, we’ll make it work.</p>
     </aside>
   </div>
 </section>

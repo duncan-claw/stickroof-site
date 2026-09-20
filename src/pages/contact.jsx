@@ -9,8 +9,8 @@ export default function Page({route}) { return <>
       <p className="lede">Need help with a stick roof, difficult renovation framing, specialist joinery, or project management? Send the basics and expect a direct response.</p>
       <div className="contact-card">
         <h2>Quickest option</h2>
-        <p><a href="tel:+61457523919">0457 523 919</a></p>
-        <p>If calling is awkward, you can email instead.</p>
+        <p>Call Ian on <a href="tel:+61457523919">0457 523 919</a>.</p>
+        <p>If calling Ian is awkward, you can email instead.</p>
         <RevealEmail />
       </div>
     </div>

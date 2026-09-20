@@ -4,3 +4,9 @@ dist/
 artifacts/
 .DS_Store
 doco/exports/
+
+# Local env files (Postie API key etc.) never committed
+.env.local
+.env.*.local
+.env
+.env.*

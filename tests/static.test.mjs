@@ -1,5 +1,9 @@
 import {test} from 'node:test';import assert from 'node:assert/strict';import fs from 'node:fs';import {load} from 'cheerio';import {trackingAllowed,trackAcceptedEnquiry} from '../src/tracking.js';
 const data=JSON.parse(fs.readFileSync('src/data.json'));const norm=s=>s.replace(/\s+/g,' ').trim();
+// Derive build variant from the shipped HTML itself, not the current env: the
+// dist/ tree must always agree with the assertions under test. The hidden
+// nickname honeypot only renders in the keyed (live-wired) build.
+const keyed=fs.readFileSync('dist/contact/index.html','utf8').includes('name="nickname"');
 for(const [route,page] of Object.entries(data.pages))test('Static content, SEO, assets and source copy: '+route,()=>{
 const html=fs.readFileSync('dist'+(route==='/'?'':route)+'/index.html','utf8');const $=load(html);
 assert.equal($('title').text(),page.title);assert.equal($('meta[name=description]').attr('content'),page.description);assert.equal($('link[rel=canonical]').attr('href'),'https://stickroof.com'+route);
@@ -9,7 +13,6 @@ $('img').each((_,el)=>{assert.ok(fs.existsSync('dist'+$(el).attr('src')));assert
 $('a').each((_,el)=>{const href=$(el).attr('href');if(href.startsWith('/'))assert.ok(data.pages[href]||fs.existsSync('dist'+href));if(href.startsWith('#'))assert.equal($(href).length,1);});
 const source=fs.readFileSync('tests/fixtures/'+page.action+'.html.erb','utf8').replaceAll('<%= default_phone_number %>','0457 523 919').replace(/<%[\s\S]*?%>/g,'');const original=load(source);const text=norm($('main').text());
 original('h1,h2,h3,p,li,blockquote,cite').each((_,el)=>{const copy=norm(original(el).text());if(copy)assert.ok(text.includes(copy),'Missing source copy: '+copy);});
-const keyed=!!process.env.VITE_POSTIE_API_KEY;
 if(route==='/'||route==='/contact'){assert.equal($('input[name=source_path]').attr('value'),route);assert.equal($('button[disabled]').length,1);assert.equal($('[required]').length,6);assert.deepEqual($('select option').toArray().slice(1).map(e=>$(e).text()),data.formServices);
  if(keyed){assert.equal($('input[name=nickname]').length,1);assert.equal($('.form-shell .error-summary').length,0);}else{assert.equal($('input[name=nickname]').length,0);assert.equal($('.form-shell .error-summary').length,1);}}
 if(route==='/'||route==='/stick-roofs')$('.gallery-card img').each((i,el)=>{const item=data.gallery[i];for(const key of ['src','alt','width','height'])assert.equal($(el).attr(key),String(item[key]));});

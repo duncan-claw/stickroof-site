@@ -6,9 +6,9 @@ export default function Page({route}) { return <>
     <div className="section-heading">
       <p className="eyebrow">Thanks</p>
       <h1>Your enquiry is through.</h1>
-      <p className="lede">Stick Roof has your details and will be in touch shortly. If the job is urgent, call <a href="tel:+61457523919">0457 523 919</a>.</p>
+      <p className="lede">Stick Roof has your details and will be in touch shortly. If the job is urgent, call Ian on <a href="tel:+61457523919">0457 523 919</a>.</p>
       <div className="button-row">
-        <a className="button" href="tel:+61457523919">Call now</a>
+        <a className="button" href="tel:+61457523919">Call Ian</a>
         <a className="button--ghost" href="/">Back to home</a>
       </div>
     </div>

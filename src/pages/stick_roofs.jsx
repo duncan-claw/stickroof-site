@@ -13,7 +13,7 @@ export default function Page({route}) { return <>
       <p>We work on difficult roof structures, renovations tying into existing homes, and custom framing details where accuracy matters.</p>
       <div className="button-row" style={{"marginTop":"1rem"}}>
         <a className="button" href="/contact">Request a quote</a>
-        <a className="button--ghost" href="tel:+61457523919">Call 0457 523 919</a>
+        <a className="button--ghost" href="tel:+61457523919">Call Ian · 0457 523 919</a>
       </div>
     </aside>
   </div>

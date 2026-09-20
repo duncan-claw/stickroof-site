@@ -48,7 +48,7 @@ export default function Page({route}) { return <>
       <p>Send plans, photos, dimensions, or just a plain-English description. If it sounds like the sort of problem most carpenters avoid, that’s probably a good sign.</p>
       <div className="button-row" style={{"marginTop":"1rem"}}>
         <a className="button" href="/contact">Send project details</a>
-        <a className="button--ghost" href="tel:+61457523919">Call 0457 523 919</a>
+        <a className="button--ghost" href="tel:+61457523919">Call Ian · 0457 523 919</a>
       </div>
     </div>
   </div>

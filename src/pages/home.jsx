@@ -14,7 +14,7 @@ export default function Page({route}) { return <>
       </div>
       <div className="stats-grid" aria-label="Business highlights">
         <div className="stat"><strong>40 min</strong><span>Service radius around Geelong</span></div>
-        <div className="stat"><strong>1 call</strong><span>Direct contact with the person doing the work</span></div>
+        <div className="stat"><strong>1 call</strong><span>Talk directly to Ian, the person doing the work</span></div>
         <div className="stat"><strong>Complex</strong><span>Roof framing and joinery jobs welcomed</span></div>
       </div>
     </div>
@@ -87,9 +87,9 @@ export default function Page({route}) { return <>
     </div>
     <div className="contact-card">
       <h2>Prefer to talk it through?</h2>
-      <p>Call <a href="tel:+61457523919">0457 523 919</a> for a quick conversation about access, plans, roof shape, timeframe, and whether it’s the right fit.</p>
+      <p>Call Ian on <a href="tel:+61457523919">0457 523 919</a> for a quick conversation about access, plans, roof shape, timeframe, and whether it’s the right fit.</p>
       <div className="button-row" style={{"marginTop":"1rem"}}>
-        <a className="button" href="tel:+61457523919">Call now</a>
+        <a className="button" href="tel:+61457523919">Call Ian</a>
         <a className="button--ghost" href="/service-area">See service area</a>
       </div>
     </div>
