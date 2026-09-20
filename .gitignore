@@ -3,3 +3,4 @@ dist/
 .ssr/
 artifacts/
 .DS_Store
+doco/exports/
